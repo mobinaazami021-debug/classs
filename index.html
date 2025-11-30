@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fa">
+<head>
+  <meta charset="utf-8" />
+  <title>ورود معلم | کلاس آنلاین</title>
+  <style>
+    body { 
+      font-family: Tahoma; 
+      direction: rtl; 
+      text-align: center;
+      background: #f0f0f0;
+      padding-top: 80px;
+    }
+    .box {
+      width: 300px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #aaa;
+    }
+    input {
+      width: 95%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      font-size: 16px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h3>ورود معلم به کلاس آنلاین</h3>
+    <input id="name" type="text" placeholder="نام خود را وارد کنید" />
+    <button onclick="enterClass()">ورود</button>
+  </div>
+
+  <script>
+    function enterClass(){
+      const name = document.getElementById("name").value.trim();
+      if(name === ""){
+        alert("لطفاً نام خود را وارد کنید");
+        return;
+      }
+      // انتقال به صفحه کلاس همراه با نام
+      window.location.href = "class.html?name=" + encodeURIComponent(name);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fa">
+<head>
+  <meta charset="utf-8" />
+  <title>کلاس آنلاین</title>
+
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+      font-family: Tahoma;
+      overflow: hidden;
+    }
+    #header {
+      background: #007bff;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 18px;
+    }
+    #meet {
+      width: 100vw;
+      height: calc(100vh - 50px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="header">
+    کلاس آنلاین —
+    <span id="teacherName"></span>
+  </div>
+
+  <div id="meet"></div>
+
+  <script src="https://8x8.vc/external_api.js"></script>
+  <script>
+    // دریافت نام معلم از URL
+    let params = new URLSearchParams(window.location.search);
+    const teacherName = params.get("name") || "معلم";
+
+    document.getElementById("teacherName").innerText = teacherName;
+
+    const domain = "meet.jit.si";
+
+    const options = {
+      roomName: "ClassRoom_For_OurClass_2025",
+      parentNode: document.querySelector('#meet'),
+      width: "100%",
+      height: "100%",
+      userInfo: {
+        displayName: teacherName
+      }
+    };
+
+    const api = new JitsiMeetExternalAPI(domain, options);
+  </script>
+
+</body>
+</html>
